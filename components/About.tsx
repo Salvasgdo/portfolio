@@ -1,0 +1,96 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Code2, Palette, Rocket, Users } from "lucide-react";
+
+export default function About() {
+  const features = [
+    {
+      icon: Code2,
+      title: "Desarrollo",
+      description: "Experiencia en desarrollo full stack con tecnologías modernas",
+    },
+    {
+      icon: Palette,
+      title: "Diseño",
+      description: "Creación de interfaces atractivas y experiencias de usuario intuitivas",
+    },
+    {
+      icon: Rocket,
+      title: "Performance",
+      description: "Optimización de aplicaciones para máximo rendimiento",
+    },
+    {
+      icon: Users,
+      title: "Colaboración",
+      description: "Trabajo en equipo efectivo y comunicación clara",
+    },
+  ];
+
+  return (
+    <section id="sobre-mi" className="py-20 px-4 bg-secondary/30">
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Sobre Mí</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Soy un desarrollador apasionado por la tecnología y la creación de
+            soluciones innovadoras que marquen la diferencia
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-2 hover:border-primary/50">
+                <CardContent className="p-6 text-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="inline-block p-4 bg-primary/10 rounded-full mb-4"
+                  >
+                    <feature.icon className="h-8 w-8 text-primary" />
+                  </motion.div>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-16 max-w-3xl mx-auto"
+        >
+          <Card>
+            <CardContent className="p-8">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Con más de X años de experiencia en desarrollo web, me especializo
+                en crear aplicaciones modernas y escalables. Mi enfoque está en
+                escribir código limpio, mantener las mejores prácticas y estar
+                siempre aprendiendo nuevas tecnologías. Me apasiona resolver
+                problemas complejos y convertir ideas en realidad.
+              </p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
