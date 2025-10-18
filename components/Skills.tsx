@@ -85,11 +85,9 @@ export default function Skills() {
         { name: "Figma", icon: SiFigma, color: "#F24E1E" },
         { name: "UI/UX", icon: MdDesignServices, color: "#FF6B6B" },
         { name: "Responsive Design", icon: TbBrandReactNative, color: "#61DAFB" },
-        { name: "Accesibilidad", icon: TbAccessible, color: "#4A90E2" },
         { name: "SEO", icon: TbRocket, color: "#4CAF50" },
         { name: "Agile/Scrum", icon: TbUsers, color: "#FF9800" },
-        { name: "REST APIs", icon: TbApi, color: "#9C27B0" },
-        { name: "Web Performance", icon: MdSpeed, color: "#FFC107" },
+        { name: "REST APIs", icon: TbApi, color: "#9C27B0" }
       ],
     },
   ];
@@ -138,12 +136,12 @@ export default function Skills() {
                         whileHover={{ scale: 1.1, y: -5 }}
                         className="group relative"
                       >
-                        <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-background hover:bg-accent transition-colors duration-200">
+                        <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-background hover:bg-accent transition-colors duration-200 w-20 min-h-20 md:w-24 md:min-h-24">
                           <skill.icon
-                            className="w-8 h-8 md:w-10 md:h-10 transition-all duration-200"
+                            className="w-8 h-8 md:w-10 md:h-10 transition-all duration-200 flex-shrink-0"
                             style={{ color: skill.color }}
                           />
-                          <span className="text-xs font-medium text-center">
+                          <span className="text-[10px] md:text-xs font-medium text-center leading-tight w-full break-words">
                             {skill.name}
                           </span>
                         </div>
