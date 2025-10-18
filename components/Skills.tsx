@@ -122,7 +122,7 @@ export default function Skills() {
                   <h3 className="text-2xl font-semibold">{category.category}</h3>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-wrap justify-center gap-4">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skill.name}
