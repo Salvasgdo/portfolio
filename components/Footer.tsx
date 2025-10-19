@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,27 +21,27 @@ export default function Footer() {
           className="flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-muted-foreground text-sm flex items-center gap-2">
-            © {currentYear} Portfolio. Hecho con{" "}
-            <Heart className="h-4 w-4 text-red-500 fill-red-500" /> y Next.js
+            © {currentYear} Portfolio. {t("footer.madeWith")}{" "}
+            <Heart className="h-4 w-4 text-red-500 fill-red-500" /> {t("footer.and")} Next.js
           </p>
           <div className="flex gap-6">
             <a
               href="#inicio"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Inicio
+              {t("footer.home")}
             </a>
             <a
               href="#proyectos"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Proyectos
+              {t("footer.projects")}
             </a>
             <a
               href="#contacto"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Contacto
+              {t("footer.contact")}
             </a>
           </div>
         </motion.div>

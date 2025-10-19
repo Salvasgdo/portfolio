@@ -2,12 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, Languages } from "lucide-react";
 import { useState } from "react";
 import { NAV_ITEMS } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const toggleLanguage = () => {
+    setLanguage(language === "es" ? "en" : "es");
+  };
 
   return (
     <motion.header
@@ -23,7 +29,7 @@ export default function Header() {
           transition={{ delay: 0.2 }}
           className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
         >
-          Portfolio
+          {t("nav.portfolio")}
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -37,21 +43,41 @@ export default function Header() {
               transition={{ delay: 0.1 * index }}
               className="text-foreground/80 hover:text-foreground transition-colors duration-200 relative group"
             >
-              {item.name}
+              {t(`nav.${item.i18nKey}`)}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
             </motion.a>
           ))}
+          
+          {/* Language Toggle */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleLanguage}
+            className="gap-2"
+          >
+            <Languages className="h-4 w-4" />
+            {language === "es" ? "EN" : "ES"}
+          </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <Menu className="h-6 w-6" />
-        </Button>
+        {/* Mobile Menu and Language Buttons */}
+        <div className="flex md:hidden gap-2 items-center">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleLanguage}
+            className="text-xs"
+          >
+            {language === "es" ? "EN" : "ES"}
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="h-6 w-6" />
+          </Button>
+        </div>
       </nav>
 
       {/* Mobile Navigation */}
@@ -70,7 +96,7 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 className="text-foreground/80 hover:text-foreground transition-colors duration-200"
               >
-                {item.name}
+                {t(`nav.${item.i18nKey}`)}
               </a>
             ))}
           </div>

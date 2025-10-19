@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center pt-20 px-4">
       <div className="container mx-auto">
@@ -35,13 +37,13 @@ export default function Hero() {
             className="space-y-4"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-              Hola, soy{" "}
+              {t("hero.greeting")}{" "}
               <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                 {SITE_CONFIG.name}
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              {SITE_CONFIG.title} {SITE_CONFIG.bio}
+              {t("hero.title")} {t("hero.bio")}
             </p>
           </motion.div>
 
@@ -53,13 +55,13 @@ export default function Hero() {
           >
             <Button size="lg" className="group" asChild>
               <a href="#proyectos">
-                Ver Proyectos
+                {t("hero.viewProjects")}
                 <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="#contacto">
-                Contáctame
+                {t("hero.contactMe")}
               </a>
             </Button>
           </motion.div>

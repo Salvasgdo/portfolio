@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   SiReact,
   SiNextdotjs,
@@ -30,17 +31,22 @@ import {
   SiJest,
   SiCypress,
   SiFigma,
+  SiSwift,
+  SiKotlin,
+  SiXcode,
+  SiAndroidstudio,
 } from "react-icons/si";
 import { TbBrandReactNative, TbApi, TbRocket, TbUsers, TbAccessible, TbBrandAws } from "react-icons/tb";
 import { MdDesignServices, MdSpeed } from "react-icons/md";
 import { AiOutlineDeploymentUnit, AiOutlineCloudServer } from "react-icons/ai";
 
 export default function Skills() {
+  const { t } = useLanguage();
+  
   const skillCategories = [
     {
-      category: "Frontend",
+      category: t("skills.frontend"),
       skills: [
-        { name: "React", icon: SiReact, color: "#61DAFB" },
         { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
         { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
         { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
@@ -48,44 +54,42 @@ export default function Skills() {
         { name: "HTML/CSS", icon: SiHtml5, color: "#E34F26" },
         { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
         { name: "Redux", icon: SiRedux, color: "#764ABC" },
-        { name: "Vue.js", icon: SiVuedotjs, color: "#4FC08D" },
+        { name: "React Native", icon: TbBrandReactNative, color: "#61DAFB" },
+        { name: "SwiftUI", icon: SiSwift, color: "#FA7343" },
+        { name: "Kotlin", icon: SiKotlin, color: "#7F52FF" }
       ],
     },
     {
-      category: "Backend",
+      category: t("skills.backend"),
       skills: [
         { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
         { name: "Express", icon: SiExpress, color: "#000000" },
         { name: "Python", icon: SiPython, color: "#3776AB" },
-        { name: "FastAPI", icon: SiFastapi, color: "#009688" },
-        { name: "Django", icon: SiDjango, color: "#092E20" },
         { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
         { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-        { name: "Redis", icon: SiRedis, color: "#DC382D" },
         { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
       ],
     },
     {
-      category: "DevOps & Herramientas",
+      category: t("skills.devops"),
       skills: [
         { name: "Git", icon: SiGit, color: "#F05032" },
         { name: "Docker", icon: SiDocker, color: "#2496ED" },
-        { name: "AWS", icon: TbBrandAws, color: "#FF9900" },
         { name: "Vercel", icon: SiVercel, color: "#000000" },
         { name: "CI/CD", icon: AiOutlineDeploymentUnit, color: "#2088FF" },
         { name: "Linux", icon: SiLinux, color: "#FCC624" },
         { name: "Nginx", icon: SiNginx, color: "#009639" },
         { name: "Jest", icon: SiJest, color: "#C21325" },
-        { name: "Cypress", icon: SiCypress, color: "#17202C" },
+        { name: "XCode", icon: SiXcode, color: "#147EFB" },
+        { name: "Android Studio", icon: SiAndroidstudio, color: "#3DDC84" },
       ],
     },
     {
-      category: "Diseño & Otros",
+      category: t("skills.design"),
       skills: [
         { name: "Figma", icon: SiFigma, color: "#F24E1E" },
         { name: "UI/UX", icon: MdDesignServices, color: "#FF6B6B" },
         { name: "Responsive Design", icon: TbBrandReactNative, color: "#61DAFB" },
-        { name: "SEO", icon: TbRocket, color: "#4CAF50" },
         { name: "Agile/Scrum", icon: TbUsers, color: "#FF9800" },
         { name: "REST APIs", icon: TbApi, color: "#9C27B0" }
       ],
@@ -102,9 +106,9 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Habilidades</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t("skills.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Tecnologías y herramientas con las que trabajo
+            {t("skills.subtitle")}
           </p>
         </motion.div>
 

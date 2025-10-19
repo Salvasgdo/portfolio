@@ -12,12 +12,8 @@ export const SITE_CONFIG = {
   
   // Redes sociales y contacto
   email: process.env.NEXT_PUBLIC_EMAIL || "salvador2salgado@gmail.com",
-  github: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/tuusuario",
-  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/in/tuusuario",
-  
-  // URLs (opcional)
-  twitter: "https://twitter.com/tuusuario", // opcional
-  portfolio: "https://tu-sitio.com", // opcional
+  github: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Salvasgdo",
+  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/in/salvador-salgado-toledano",
   
   // CVs (guarda tus archivos PDF en /public/)
   cvEs: "/cv-salvador-salgado-es.pdf", // CV en español
@@ -25,11 +21,11 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_ITEMS = [
-  { name: "Inicio", href: "#inicio" },
-  { name: "Sobre Mí", href: "#sobre-mi" },
-  { name: "Proyectos", href: "#proyectos" },
-  { name: "Habilidades", href: "#habilidades" },
-  { name: "Contacto", href: "#contacto" },
+  { name: "Inicio", href: "#inicio", i18nKey: "inicio" },
+  { name: "Sobre Mí", href: "#sobre-mi", i18nKey: "sobremi" },
+  { name: "Proyectos", href: "#proyectos", i18nKey: "proyectos" },
+  { name: "Habilidades", href: "#habilidades", i18nKey: "habilidades" },
+  { name: "Contacto", href: "#contacto", i18nKey: "contacto" },
 ];
 
 // Animaciones comunes de Framer Motion

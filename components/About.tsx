@@ -3,28 +3,30 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code2, Palette, Rocket, Users } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
   const features = [
     {
       icon: Code2,
-      title: "Desarrollo",
-      description: "Experiencia en desarrollo full stack con tecnologías modernas",
+      title: t("about.development"),
+      description: t("about.developmentDesc"),
     },
     {
       icon: Palette,
-      title: "Diseño",
-      description: "Creación de interfaces atractivas y experiencias de usuario intuitivas",
+      title: t("about.design"),
+      description: t("about.designDesc"),
     },
     {
       icon: Rocket,
-      title: "Performance",
-      description: "Optimización de aplicaciones para máximo rendimiento",
+      title: t("about.performance"),
+      description: t("about.performanceDesc"),
     },
     {
       icon: Users,
-      title: "Colaboración",
-      description: "Trabajo en equipo efectivo y comunicación clara",
+      title: t("about.collaboration"),
+      description: t("about.collaborationDesc"),
     },
   ];
 
@@ -38,10 +40,9 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Sobre Mí</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t("about.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Soy un desarrollador apasionado por la tecnología y la creación de
-            soluciones innovadoras que marquen la diferencia
+            {t("about.subtitle")}
           </p>
         </motion.div>
 
@@ -80,11 +81,7 @@ export default function About() {
           <Card>
             <CardContent className="p-8">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Con más de X años de experiencia en desarrollo web, me especializo
-                en crear aplicaciones modernas y escalables. Mi enfoque está en
-                escribir código limpio, mantener las mejores prácticas y estar
-                siempre aprendiendo nuevas tecnologías. Me apasiona resolver
-                problemas complejos y convertir ideas en realidad.
+                {t("about.bio")}
               </p>
             </CardContent>
           </Card>

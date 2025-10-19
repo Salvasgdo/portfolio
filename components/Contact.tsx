@@ -5,27 +5,29 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Phone, Send, Download } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
+      label: t("contact.email2"),
       value: SITE_CONFIG.email,
       href: `mailto:${SITE_CONFIG.email}`,
     },
-    {
+    /*{
       icon: Phone,
-      label: "Teléfono",
+      label: t("contact.phone"),
       value: SITE_CONFIG.phone,
       href: `tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`,
-    },
-    {
+    },*/
+    /*{
       icon: MapPin,
-      label: "Ubicación",
+      label: t("contact.location"),
       value: SITE_CONFIG.location,
       href: "#",
-    },
+    },*/
   ];
 
   return (
@@ -38,9 +40,9 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Contacto</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t("contact.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? ¡Hablemos!
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -53,7 +55,7 @@ export default function Contact() {
           >
             <Card className="h-full">
               <CardHeader>
-                <h3 className="text-2xl font-semibold">Envíame un mensaje</h3>
+                <h3 className="text-2xl font-semibold">{t("contact.sendMessage")}</h3>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
@@ -62,13 +64,13 @@ export default function Contact() {
                       htmlFor="name"
                       className="block text-sm font-medium mb-2"
                     >
-                      Nombre
+                      {t("contact.name")}
                     </label>
                     <input
                       type="text"
                       id="name"
                       className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="Tu nombre"
+                      placeholder={t("contact.namePlaceholder")}
                     />
                   </div>
                   <div>
@@ -76,13 +78,13 @@ export default function Contact() {
                       htmlFor="email"
                       className="block text-sm font-medium mb-2"
                     >
-                      Email
+                      {t("contact.email")}
                     </label>
                     <input
                       type="email"
                       id="email"
                       className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="tu@email.com"
+                      placeholder={t("contact.emailPlaceholder")}
                     />
                   </div>
                   <div>
@@ -90,17 +92,17 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-sm font-medium mb-2"
                     >
-                      Mensaje
+                      {t("contact.message")}
                     </label>
                     <textarea
                       id="message"
                       rows={5}
                       className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-                      placeholder="Tu mensaje..."
+                      placeholder={t("contact.messagePlaceholder")}
                     />
                   </div>
                   <Button type="submit" className="w-full group">
-                    Enviar Mensaje
+                    {t("contact.send")}
                     <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </form>
@@ -152,22 +154,22 @@ export default function Contact() {
             <Card className="bg-gradient-to-br from-primary/10 to-purple-600/10 border-2 border-primary/20">
               <CardContent className="p-8 text-center">
                 <h4 className="text-xl font-semibold mb-2">
-                  ¿Listo para empezar?
+                  {t("contact.ready")}
                 </h4>
                 <p className="text-muted-foreground mb-4">
-                  Estoy disponible para proyectos freelance y colaboraciones
+                  {t("contact.available")}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button size="lg" className="flex-1" asChild>
                     <a href={SITE_CONFIG.cvEs} download target="_blank" rel="noopener noreferrer">
                       <Download className="mr-2 h-4 w-4" />
-                      CV Español
+                      {t("contact.cvSpanish")}
                     </a>
                   </Button>
                   <Button size="lg" variant="outline" className="flex-1" asChild>
                     <a href={SITE_CONFIG.cvEn} download target="_blank" rel="noopener noreferrer">
                       <Download className="mr-2 h-4 w-4" />
-                      CV English
+                      {t("contact.cvEnglish")}
                     </a>
                   </Button>
                 </div>

@@ -5,8 +5,10 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Projects() {
+  const { t } = useLanguage();
   const projects = [
     {
       title: "E-Commerce Platform",
@@ -56,9 +58,9 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Mis Proyectos</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t("projects.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Algunos de los proyectos en los que he trabajado recientemente
+            {t("projects.subtitle")}
           </p>
         </motion.div>
 
@@ -101,13 +103,13 @@ export default function Projects() {
                   <Button variant="outline" className="flex-1" asChild>
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" />
-                      Código
+                      {t("projects.code")}
                     </a>
                   </Button>
                   <Button className="flex-1" asChild>
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
+                      {t("projects.demo")}
                     </a>
                   </Button>
                 </CardFooter>
