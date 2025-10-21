@@ -133,9 +133,9 @@ export default function Contact() {
                     >
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
-                        className="p-3 bg-primary/10 rounded-full"
+                        className="p-3 bg-purple-400/10 rounded-full"
                       >
-                        <info.icon className="h-6 w-6 text-primary" />
+                        <info.icon className="h-6 w-6 text-purple-700" />
                       </motion.div>
                       <div>
                         <p className="text-sm text-muted-foreground">

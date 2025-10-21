@@ -37,7 +37,7 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="hover:shadow-xl transition-shadow duration-300 border-l-4 border-l-primary">
+              <Card className="hover:shadow-xl transition-shadow duration-300 border-l-4 border-l-purple-700">
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex-1">
@@ -96,7 +96,7 @@ export default function Experience() {
                           whileHover={{ scale: 1.05 }}
                         >
                           <Badge 
-                            variant="secondary" 
+                            variant="custom" 
                             className="text-sm px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-colors"
                           >
                             {tech}

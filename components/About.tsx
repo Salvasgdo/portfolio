@@ -60,9 +60,9 @@ export default function About() {
                 <CardContent className="p-6 text-center">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="inline-block p-4 bg-primary/10 rounded-full mb-4"
+                    className="inline-block p-4 bg-purple-400/10 rounded-full mb-4"
                   >
-                    <feature.icon className="h-8 w-8 text-primary" />
+                    <feature.icon className="h-8 w-8 text-purple-700" />
                   </motion.div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>

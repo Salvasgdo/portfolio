@@ -82,9 +82,9 @@ export default function Hero() {
                 href={social.href}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-3 rounded-full bg-secondary hover:bg-primary/10 transition-colors"
+                className="p-3 rounded-full bg-purple-400/10 hover:bg-primary/10 transition-colors"
               >
-                <social.icon className="h-6 w-6" />
+                <social.icon className="h-6 w-6 text-purple-700" />
               </motion.a>
             ))}
           </motion.div>

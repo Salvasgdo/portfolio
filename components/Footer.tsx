@@ -21,7 +21,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-muted-foreground text-sm flex items-center gap-2">
-            © {currentYear} Portfolio. {t("footer.madeWith")}{" "}
+            © {currentYear} Portfolio. {/*{t("footer.madeWith")}{" "}*/} 
             {/* <Heart className="h-4 w-4 text-red-500 fill-red-500" /> {t("footer.and")} Next.js */}
           </p>
           <div className="flex gap-6">
