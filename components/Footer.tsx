@@ -22,7 +22,7 @@ export default function Footer() {
         >
           <p className="text-muted-foreground text-sm flex items-center gap-2">
             © {currentYear} Portfolio. {t("footer.madeWith")}{" "}
-            <Heart className="h-4 w-4 text-red-500 fill-red-500" /> {t("footer.and")} Next.js
+            {/* <Heart className="h-4 w-4 text-red-500 fill-red-500" /> {t("footer.and")} Next.js */}
           </p>
           <div className="flex gap-6">
             <a

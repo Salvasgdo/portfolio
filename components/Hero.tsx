@@ -75,7 +75,7 @@ export default function Hero() {
             {[
               { icon: Github, href: SITE_CONFIG.github, label: "GitHub" },
               { icon: Linkedin, href: SITE_CONFIG.linkedin, label: "LinkedIn" },
-              { icon: Mail, href: `mailto:${SITE_CONFIG.email}`, label: "Email" },
+              /*{ icon: Mail, href: `mailto:${SITE_CONFIG.email}`, label: "Email" },*/  
             ].map((social, index) => (
               <motion.a
                 key={social.label}
@@ -94,7 +94,7 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <ArrowDown className="h-6 w-6 text-muted-foreground" />
       </motion.div>

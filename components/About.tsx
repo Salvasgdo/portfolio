@@ -13,11 +13,11 @@ export default function About() {
       title: t("about.development"),
       description: t("about.developmentDesc"),
     },
-    {
+    /*{
       icon: Palette,
       title: t("about.design"),
       description: t("about.designDesc"),
-    },
+    },*/
     {
       icon: Rocket,
       title: t("about.performance"),
@@ -46,7 +46,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -54,6 +54,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] max-w-sm"
             >
               <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-2 hover:border-primary/50">
                 <CardContent className="p-6 text-center">

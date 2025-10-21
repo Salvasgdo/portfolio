@@ -40,6 +40,7 @@ export interface Experience {
   period: string;
   description: string;
   technologies: string[];
+  logo?: string; // URL o ruta al logo de la empresa
 }
 
 export interface Education {
