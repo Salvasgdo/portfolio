@@ -40,7 +40,7 @@ export const translations = {
       performanceDesc: "Optimización de aplicaciones para máximo rendimiento",
       collaboration: "Colaboración",
       collaborationDesc: "Trabajo en equipo efectivo y comunicación clara",
-      bio: "Con más de 4 años de experiencia en desarrollo web, me especializo en crear aplicaciones modernas y escalables. Mi enfoque está en escribir código limpio, mantener las mejores prácticas y estar siempre aprendiendo nuevas tecnologías. Me apasiona resolver problemas complejos y convertir ideas en realidad.",
+      bio: "Con más de 4 años de experiencia en desarrollo móvil, y también conocimientos en desarrollo web, me especializo en crear aplicaciones modernas y escalables. Mi enfoque está en escribir código limpio, mantener las mejores prácticas y estar siempre aprendiendo nuevas tecnologías. Me apasiona resolver problemas complejos y convertir ideas en realidad.",
     },
 
     // Proyectos
@@ -54,6 +54,10 @@ export const translations = {
         portfolio: {
           title: "Portafolio Profesional",
           description: "Portafolio web moderno y responsivo con diseño minimalista, soporte multiidioma (ES/EN), animaciones fluidas y secciones interactivas para mostrar proyectos, experiencia y habilidades",
+        },
+        infokilo: {
+          title: "InfoKilo",
+          description: "App móvil cross-platform (iOS/Android) desarrollada con React Native: formularios dinámicos, soporte offline con Redux, notificaciones push con Firebase, multiidioma (i18next), captura de evidencias y gestión de datos en tiempo real.",
         },
         ecommerce: {
           title: "Plataforma E-Commerce",
@@ -123,6 +127,9 @@ export const translations = {
       available: "Estoy disponible para proyectos freelance y colaboraciones",
       cvSpanish: "CV Español",
       cvEnglish: "CV English",
+      sending: "Enviando...",
+      success: "¡Mensaje enviado! Te responderé pronto.",
+      error: "No se pudo enviar. Intenta de nuevo o escríbeme a",
     },
 
     // Footer
@@ -169,7 +176,7 @@ export const translations = {
       performanceDesc: "Application optimization for maximum performance",
       collaboration: "Collaboration",
       collaborationDesc: "Effective teamwork and clear communication",
-      bio: "With over 4 years of experience in web development, I specialize in creating modern and scalable applications. My focus is on writing clean code, maintaining best practices, and always learning new technologies. I'm passionate about solving complex problems and turning ideas into reality.",
+      bio: "With over 4 years of experience in mobile development, and knowledge in web development as well, I specialize in creating modern and scalable applications. My focus is on writing clean code, maintaining best practices, and always learning new technologies. I'm passionate about solving complex problems and turning ideas into reality.",
     },
 
     // Projects
@@ -183,6 +190,10 @@ export const translations = {
         portfolio: {
           title: "Professional Portfolio",
           description: "Modern and responsive web portfolio with minimalist design, multilanguage support (ES/EN), smooth animations and interactive sections to showcase projects, experience and skills",
+        },
+        infokilo: {
+          title: "InfoKilo",
+          description: "Cross-platform mobile app (iOS/Android) built with React Native: dynamic forms, offline support with Redux, Firebase push notifications, multi-language (i18next), evidence capture and real-time data management.",
         },
         ecommerce: {
           title: "E-Commerce Platform",
@@ -252,6 +263,9 @@ export const translations = {
       available: "I'm available for freelance projects and collaborations",
       cvSpanish: "Spanish CV",
       cvEnglish: "English CV",
+      sending: "Sending...",
+      success: "Message sent! I'll get back to you soon.",
+      error: "Could not send. Try again or email me at",
     },
 
     // Footer

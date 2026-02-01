@@ -95,6 +95,13 @@ export const PROJECTS = [
     github: "https://github.com/Salvasgdo",
     demo: "#",
   },
+  {
+    id: "infokilo",
+    image: "/images/LogoInfokilo.png",
+    tags: ["React Native", "TypeScript", "Redux", "Firebase", "i18next"],
+    github: "https://github.com/Salvasgdo/infokilo",
+    demo: "https://infokilo.vercel.app/",
+  },
   /*{
     id: "ecommerce",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",

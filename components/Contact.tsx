@@ -1,14 +1,51 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Phone, Send, Download } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Download, CheckCircle, AlertCircle } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const FORMSPREE_URL = process.env.NEXT_PUBLIC_FORMSPREE_ID
+  ? `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`
+  : null;
+
 export default function Contact() {
   const { t } = useLanguage();
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!FORMSPREE_URL) {
+      setErrorMessage("Formspree no configurado. Añade NEXT_PUBLIC_FORMSPREE_ID en .env.local");
+      setStatus("error");
+      return;
+    }
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    setStatus("sending");
+    setErrorMessage("");
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+        setErrorMessage((await res.json()).error || "Error al enviar");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage(t("contact.error"));
+    }
+  }
   const contactInfo = [
     {
       icon: Mail,
@@ -58,7 +95,7 @@ export default function Contact() {
                 <h3 className="text-2xl font-semibold">{t("contact.sendMessage")}</h3>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
                     <label
                       htmlFor="name"
@@ -69,8 +106,11 @@ export default function Contact() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      required
                       className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                       placeholder={t("contact.namePlaceholder")}
+                      disabled={status === "sending"}
                     />
                   </div>
                   <div>
@@ -83,8 +123,11 @@ export default function Contact() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      required
                       className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                       placeholder={t("contact.emailPlaceholder")}
+                      disabled={status === "sending"}
                     />
                   </div>
                   <div>
@@ -96,14 +139,42 @@ export default function Contact() {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={5}
+                      required
                       className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-none"
                       placeholder={t("contact.messagePlaceholder")}
+                      disabled={status === "sending"}
                     />
                   </div>
-                  <Button type="submit" className="w-full group">
-                    {t("contact.send")}
-                    <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  {status === "success" && (
+                    <p className="flex items-center gap-2 text-sm text-green-600 dark:text-green-400">
+                      <CheckCircle className="h-4 w-4 shrink-0" />
+                      {t("contact.success")}
+                    </p>
+                  )}
+                  {status === "error" && (
+                    <p className="flex items-center gap-2 text-sm text-destructive">
+                      <AlertCircle className="h-4 w-4 shrink-0" />
+                      {errorMessage || t("contact.error")}{" "}
+                      <a href={`mailto:${SITE_CONFIG.email}`} className="underline">
+                        {SITE_CONFIG.email}
+                      </a>
+                    </p>
+                  )}
+                  <Button
+                    type="submit"
+                    className="w-full group"
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? (
+                      t("contact.sending")
+                    ) : (
+                      <>
+                        {t("contact.send")}
+                        <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>
